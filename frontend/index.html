@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIWI Market — Marketplace de coders</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236D3FD6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='monospace' font-size='16' font-weight='bold' fill='white'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+  <meta name="description"
+    content="Marketplace de productos digitales creados por la comunidad RIWI: apps, APIs, plantillas y automatizaciones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ==================== SPRITE DE ICONOS SVG ==================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-code" viewBox="0 0 24 24">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+      </symbol>
+      <symbol id="i-credit-card" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+        <line x1="2" y1="10" x2="22" y2="10" />
+        <line x1="6" y1="16" x2="10" y2="16" />
+      </symbol>
+      <symbol id="i-bank" viewBox="0 0 24 24">
+        <path d="M4 10l8-6 8 6" />
+        <path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+        <line x1="9" y1="21" x2="9" y2="14" />
+        <line x1="15" y1="21" x2="15" y2="14" />
+        <line x1="7" y1="21" x2="17" y2="21" />
+      </symbol>
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+        <polyline points="16 17 21 12 16 7" />
+        <line x1="21" y1="12" x2="9" y2="12" />
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" />
+      </symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" />
+      </symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </symbol>
+      <symbol id="i-package" viewBox="0 0 24 24">
+        <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" />
+        <path
+          d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </symbol>
+      <symbol id="i-api" viewBox="0 0 24 24">
+        <path d="M4 7V5a2 2 0 0 1 2-2h2" />
+        <path d="M20 7V5a2 2 0 0 0-2-2h-2" />
+        <path d="M4 17v2a2 2 0 0 0 2 2h2" />
+        <path d="M20 17v2a2 2 0 0 1-2 2h-2" />
+        <line x1="8" y1="12" x2="16" y2="12" />
+        <line x1="12" y1="8" x2="12" y2="16" />
+      </symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <line x1="3" y1="9" x2="21" y2="9" />
+        <line x1="9" y1="21" x2="9" y2="9" />
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+        <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+        <polyline points="15 3 21 3 21 9" />
+        <line x1="10" y1="14" x2="21" y2="3" />
+      </symbol>
+      <symbol id="i-inbox" viewBox="0 0 24 24">
+        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+        <path
+          d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+      </symbol>
+      <symbol id="i-trash-2" viewBox="0 0 24 24">
+        <polyline points="3 6 5 6 21 6" />
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <line x1="10" y1="11" x2="10" y2="17" />
+        <line x1="14" y1="11" x2="14" y2="17" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ==================== LANDING ==================== -->
+  <section id="view-landing" class="view active">
+    <div class="l-top">
+      <header class="l-header">
+        <a href="#/" class="l-logo"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img"></a>
+        <nav class="l-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#caracteristicas">Características</a>
+          <a href="#comunidad">Comunidad</a>
+        </nav>
+        <div class="l-header-actions">
+          <a href="#/login" class="btn-outline">Iniciar sesión</a>
+        </div>
+      </header>
+      <div style="height: 60px;"></div>
+
+      <section id="inicio" class="l-hero">
+        <div class="l-hero-text">
+          <span class="l-eyebrow">$ comunidad_activa --coders riwi</span>
+          <h1>Tu código,<br>ahora <span class="accent">en el mercado.</span></h1>
+          <p class="l-hero-sub">
+            RIWI Market es el espacio donde los coders y egresados de RIWI publican, promocionan
+            y venden lo que construyeron durante su formación: apps, APIs, plantillas y
+            automatizaciones. Un catálogo curado, hecho por y para la comunidad.
+          </p>
+          <div class="l-hero-cta">
+            <a href="#/registro" class="btn-primario">Crear cuenta</a>
+            <a href="#/catalogo" class="btn-coral">Explorar catálogo →</a>
+          </div>
+        </div>
+
+        <div class="l-hero-visual" aria-hidden="true">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="terminal-title">vendedor@riwi-market</span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="prompt">$</span> riwi publish ./api-clima</p>
+              <p class="terminal-muted">Subiendo metadatos del producto...</p>
+              <p class="terminal-muted">Esperando aprobación del equipo RIWI...</p>
+              <p class="terminal-ok">✓ Producto aprobado y publicado</p>
+              <div class="terminal-card">
+                <div class="terminal-card-icon"><svg class="icon">
+                    <use href="#i-api" />
+                  </svg></div>
+                <div>
+                  <p class="terminal-card-title">api-clima</p>
+                  <p class="terminal-card-meta">Automatizaciones · $45.000 · ★ 4.8</p>
+                </div>
+              </div>
+              <p><span class="prompt">$</span> <span class="cursor">▌</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <section id="caracteristicas" class="l-section">
+        <span class="l-eyebrow l-eyebrow-dark">/características</span>
+        <h2>De tu carpeta de proyectos, a ingresos reales</h2>
+        <p class="l-section-sub">Todo lo que necesitas para convertir lo que ya construiste en algo que otros puedan
+          usar y pagar.</p>
+
+        <div class="l-features">
+          <div class="l-feature-card">
+            <div class="l-feature-icon"><svg class="icon">
+                <use href="#i-package" />
+              </svg></div>
+            <h3>Publica en minutos</h3>
+            <p>Sube tu producto con título, descripción, categoría y el enlace a tu repositorio. Sin fricción, sin
+              formularios eternos.</p>
+          </div>
+          <div class="l-feature-card">
+            <div class="l-feature-icon"><svg class="icon">
+                <use href="#i-check-circle" />
+              </svg></div>
+            <h3>Catálogo curado</h3>
+            <p>Cada publicación pasa por revisión del equipo RIWI antes de salir al catálogo, así todo lo que se vende
+              mantiene un estándar.</p>
+          </div>
+          <div class="l-feature-card">
+            <div class="l-feature-icon"><svg class="icon">
+                <use href="#i-lock" />
+              </svg></div>
+            <h3>Acceso seguro al código</h3>
+            <p>Al comprar, se otorga acceso directo al repositorio privado del producto. Sin archivos sueltos, sin
+              enlaces que expiran.</p>
+          </div>
+          <div class="l-feature-card">
+            <div class="l-feature-icon"><svg class="icon">
+                <use href="#i-star" />
+              </svg></div>
+            <h3>Reputación real</h3>
+            <p>Solo quienes compraron pueden calificar. La reputación de cada vendedor se construye con compras reales,
+              no con clics.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="comunidad" class="l-comunidad">
+        <div class="l-comunidad-text">
+          <span class="l-eyebrow">/comunidad</span>
+          <h2>Hecho por coders RIWI, para coders RIWI</h2>
+          <p>
+            Cada producto en este catálogo salió de un proceso de formación real: un entrenamiento,
+            un reto, un proyecto integrador. RIWI Market le da a ese trabajo un lugar donde seguir
+            teniendo valor después de la última entrega.
+          </p>
+          <a href="#/registro" class="btn-primario">Únete a la comunidad</a>
+        </div>
+        <div class="l-comunidad-visual" aria-hidden="true">
+          <div class="l-role-chip"><svg class="icon">
+              <use href="#i-monitor" />
+            </svg> Compradores explorando el catálogo</div>
+          <div class="l-role-chip l-role-chip-offset"><svg class="icon">
+              <use href="#i-rocket" />
+            </svg> Vendedores publicando su trabajo</div>
+          <div class="l-role-chip"><svg class="icon">
+              <use href="#i-shield" />
+            </svg> Admins asegurando la calidad</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-footer-content">
+        <div class="l-footer-text">
+          <span class="l-logo"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img"></span>
+          <p>Find your coder,<br><strong>change the world.</strong></p>
+        </div>
+        <div class="l-footer-logo">
+          <img src="img/alcaldia logo.svg" alt="Alcaldía Municipal">
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ==================== LOGIN ==================== -->
+  <section id="view-login" class="view">
+    <div class="auth-shell">
+      <div class="form-card">
+        <a href="#/" class="form-card-logo"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img"></a>
+        <h2>Bienvenido de vuelta</h2>
+        <p class="subtitle">Inicia sesión para continuar comprando o publicar tu próximo producto.</p>
+
+        <div id="login-mensaje-error" class="mensaje-error" role="alert"></div>
+
+        <form id="login-form" novalidate>
+          <div class="campo" data-field="email">
+            <label for="login-email">Correo electrónico</label>
+            <input type="email" id="login-email" autocomplete="email" required>
+            <span class="error-inline">Ingresa un correo válido.</span>
+          </div>
+          <div class="campo" data-field="password">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" autocomplete="current-password" required>
+            <span class="error-inline">Ingresa tu contraseña.</span>
+          </div>
+          <button type="submit" class="btn-block">Iniciar sesión</button>
+        </form>
+
+        <p class="form-footer">
+          ¿No tienes cuenta? <a href="#/registro">Regístrate</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== REGISTRO ==================== -->
+  <section id="view-registro" class="view">
+    <div class="auth-shell">
+      <div class="form-card">
+        <a href="#/" class="form-card-logo"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img"></a>
+        <h2>Crear cuenta</h2>
+        <p class="subtitle">Únete a la comunidad de RIWI Market en menos de un minuto.</p>
+
+        <div id="registro-mensaje-error" class="mensaje-error" role="alert"></div>
+        <div id="registro-mensaje-exito" class="mensaje-exito" role="status"></div>
+
+        <form id="registro-form" novalidate>
+          <div class="campo" data-field="nombre">
+            <label for="registro-nombre">Nombre completo</label>
+            <input type="text" id="registro-nombre" autocomplete="name" required>
+            <span class="error-inline">Ingresa tu nombre completo (al menos 2 caracteres).</span>
+          </div>
+          <div class="campo" data-field="email">
+            <label for="registro-email">Correo electrónico</label>
+            <input type="email" id="registro-email" autocomplete="email" required>
+            <span class="error-inline">Ingresa un correo válido.</span>
+          </div>
+          <div class="campo" data-field="password">
+            <label for="registro-password">Contraseña</label>
+            <input type="password" id="registro-password" autocomplete="new-password" minlength="6" required>
+            <div class="password-meta">
+              <div class="password-bar">
+                <div class="password-bar-fill" id="registro-password-bar"></div>
+              </div>
+              <ul class="password-checks" id="registro-password-checks">
+                <li data-check="len">Mínimo 6 caracteres</li>
+                <li data-check="upper">Una mayúscula</li>
+                <li data-check="digit">Un número</li>
+                <li data-check="special">Un símbolo</li>
+              </ul>
+            </div>
+            <span class="error-inline">La contraseña debe tener al menos 6 caracteres.</span>
+          </div>
+          <button type="submit" class="btn-block">Crear cuenta</button>
+        </form>
+
+        <p class="form-footer">
+          ¿Ya tienes cuenta? <a href="#/login">Inicia sesión</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CATÁLOGO ==================== -->
+  <section id="view-catalogo" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="catalogo-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container">
+          <h1>Productos digitales de la comunidad</h1>
+          <p class="subtitle">Apps, APIs, plantillas y automatizaciones creadas por coders RIWI.</p>
+
+          <div class="search-wrap" style="margin-top:24px">
+            <svg class="icon icon-search">
+              <use href="#i-search" />
+            </svg>
+            <input type="text" id="catalogo-busqueda" placeholder="Buscar por nombre, categoría o vendedor...">
+            <span class="search-indicador" id="catalogo-search-indicador">
+              <span class="spinner-mini"></span> Buscando…
+            </span>
+          </div>
+
+          <div class="filtros-wrap">
+            <div class="filtros" id="catalogo-filtros-categoria" role="tablist" aria-label="Filtrar por categoría">
+              <span class="chip activo" data-categoria="" tabindex="0" role="tab" aria-selected="true">Todas</span>
+            </div>
+            <button type="button" class="btn-limpiar-filtros" id="catalogo-limpiar" style="display:none">
+              Limpiar filtros
+            </button>
+          </div>
+
+          <div id="catalogo-grid-productos" class="grid-productos" aria-live="polite"></div>
+          <div id="catalogo-vacio" style="display:none"></div>
+          <div id="catalogo-paginacion" class="paginacion" style="display:none"></div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTO ==================== -->
+  <section id="view-producto" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="producto-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container" id="producto-contenedor">
+          <p class="vacio">Cargando producto…</p>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== MIS COMPRAS ==================== -->
+  <section id="view-mis-compras" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="mc-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container">
+          <h1>Mis compras</h1>
+          <p class="subtitle">Historial de productos digitales que has adquirido.</p>
+          <div id="mc-lista-compras" style="margin-top:24px"></div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== CARRITO ==================== -->
+  <section id="view-carrito" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="carrito-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container">
+          <h1>Mi carrito</h1>
+          <p class="subtitle">Revisa los productos que seleccionaste antes de comprar.</p>
+
+          <div id="carrito-vacio" style="display:none;margin-top:24px">
+            <div class="empty-state">
+              <div class="empty-illo"><svg class="icon">
+                  <use href="#i-cart" />
+                </svg></div>
+              <h3>Tu carrito está vacío</h3>
+              <p>Explora el catálogo y agrega los productos digitales que te interesen — te los guardamos aquí mientras
+                decides.</p>
+              <a href="#/catalogo" class="btn">Explorar catálogo</a>
+            </div>
+          </div>
+
+          <div id="carrito-lista" style="margin-top:24px"></div>
+
+          <div id="carrito-resumen" class="carrito-resumen" style="display:none">
+            <div class="carrito-resumen-info">
+              <span id="carrito-total-items">0 productos seleccionados</span>
+              <span class="carrito-resumen-total">
+                Total: <strong id="carrito-total-monto">$0</strong>
+              </span>
+            </div>
+          </div>
+
+          <div id="carrito-acciones" class="carrito-acciones" style="display:none">
+            <a href="#/catalogo" class="btn-outline">← Seguir comprando</a>
+            <button id="carrito-btn-comprar" onclick="window.RiwiApp?.comprarCarrito?.()">
+              Comprar productos seleccionados
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== PERFIL ==================== -->
+  <section id="view-perfil" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="perfil-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container-narrow">
+          <h1>Mi perfil</h1>
+          <p class="subtitle">Información de tu cuenta y opciones de vendedor.</p>
+
+          <div id="perfil-info-perfil" class="panel" style="margin-top:24px"></div>
+
+          <div id="perfil-mensaje-error" class="mensaje-error"></div>
+          <div id="perfil-mensaje-exito" class="mensaje-exito"></div>
+
+          <div id="perfil-zona-vendedor" class="panel"></div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== DASHBOARD VENDEDOR ==================== -->
+  <section id="view-dashboard-vendedor" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="dv-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container">
+          <h1>Panel de vendedor</h1>
+          <p class="subtitle">Métricas de tus productos y publicaciones.</p>
+
+          <div id="dv-stats-vendedor" class="stats-grid" style="margin-top:24px"></div>
+
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:12px;flex-wrap:wrap">
+            <h2 style="margin:0">Mis productos</h2>
+            <button id="dv-btn-publicar">
+              <svg class="icon" style="width:16px;height:16px">
+                <use href="#i-plus" />
+              </svg>
+              Nuevo producto
+            </button>
+          </div>
+
+          <div id="dv-form-nuevo-producto" class="panel" style="display:none">
+            <div class="panel-header">
+              <h3>Nuevo producto</h3>
+              <button type="button" class="btn-ghost btn-sm" id="dv-btn-cerrar-form" aria-label="Cerrar formulario">
+                <svg class="icon" style="width:16px;height:16px">
+                  <use href="#i-close" />
+                </svg>
+              </button>
+            </div>
+            <div id="dv-mensaje-error" class="mensaje-error"></div>
+            <div id="dv-mensaje-exito" class="mensaje-exito"></div>
+            <form id="dv-form-producto">
+              <div class="campo">
+                <label for="dv-titulo">Título</label>
+                <input type="text" id="dv-titulo" required>
+              </div>
+              <div class="campo">
+                <label for="dv-descripcion">Descripción</label>
+                <textarea id="dv-descripcion" rows="4" required></textarea>
+              </div>
+              <div class="campo">
+                <label for="dv-categoria_id">Categoría</label>
+                <select id="dv-categoria_id" required></select>
+              </div>
+              <div class="campo">
+                <label for="dv-precio">Precio (COP)</label>
+                <input type="number" id="dv-precio" min="0" required>
+              </div>
+              <div class="campo">
+                <label for="dv-imagen_portada">Imagen de portada</label>
+                <input type="file" id="dv-imagen_portada" accept=".jpg,.jpeg,.png,.webp">
+                <span class="hint">Formatos: JPG, PNG, WebP. Máximo 2 MB.</span>
+              </div>
+              <div class="campo">
+                <label>Método de entrega del código</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="dv-tipo-entrega" value="github" checked> Enlace de GitHub</label>
+                  <label><input type="radio" name="dv-tipo-entrega" value="zip"> Archivo ZIP</label>
+                </div>
+              </div>
+              <div class="campo" id="dv-grupo-github">
+                <label for="dv-url_repositorio">Enlace al repositorio</label>
+                <input type="url" id="dv-url_repositorio" placeholder="https://github.com/usuario/repositorio" required>
+              </div>
+              <div class="campo" id="dv-grupo-zip" style="display:none">
+                <label for="dv-archivo_zip">Subir archivo ZIP</label>
+                <input type="file" id="dv-archivo_zip" accept=".zip">
+              </div>
+              <button type="submit">Publicar (queda en revisión)</button>
+            </form>
+          </div>
+
+          <div id="dv-lista-mis-productos"></div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== DASHBOARD ADMIN ==================== -->
+  <section id="view-dashboard-admin" class="view">
+    <div class="view-wrapper">
+      <div class="navbar">
+        <div class="logo"><a href="#/"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img riwi-logo-sm"></a></div>
+        <nav id="da-nav-links" class="navbar-nav"></nav>
+      </div>
+
+      <div class="view-body">
+        <div class="container">
+          <h1>Panel de administrador</h1>
+          <p class="subtitle">Revisión de productos, solicitudes y usuarios.</p>
+
+          <div id="da-stats-admin" class="stats-grid" style="margin-top:24px"></div>
+
+          <h2 style="margin-top:32px">Productos en revisión</h2>
+          <div id="da-lista-pendientes"></div>
+
+          <h2 style="margin-top:36px">Solicitudes para ser vendedor</h2>
+          <div id="da-lista-solicitudes"></div>
+
+          <h2 style="margin-top:36px">Usuarios registrados</h2>
+          <div class="filtros" style="margin-top:12px">
+            <span class="chip activo" data-filtro="" tabindex="0" role="button">Todos</span>
+            <span class="chip" data-filtro="activo" tabindex="0" role="button">Activos</span>
+            <span class="chip" data-filtro="bloqueado" tabindex="0" role="button">Bloqueados</span>
+          </div>
+          <div id="da-lista-usuarios" style="margin-top:14px"></div>
+        </div>
+      </div>
+
+      <div class="app-footer-slot"></div>
+    </div>
+  </section>
+
+  <!-- ==================== TEMPLATE FOOTER INTERNO ==================== -->
+  <template id="tpl-app-footer">
+    <footer class="app-footer">
+      <div class="app-footer-inner">
+        <div class="app-footer-brand">
+          <span class="footer-logo"><img src="img/riwi%20logo.png" alt="RIWI Market" class="riwi-logo-img"></span>
+          <p class="footer-desc">Find your coder,<br><span class="footer-desc-bold">change the world.</span></p>
+        </div>
+        <div>
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="#/catalogo">Catálogo</a></li>
+            <li><a href="#/catalogo">Apps web</a></li>
+            <li><a href="#/catalogo">APIs</a></li>
+            <li><a href="#/catalogo">Plantillas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cuenta</h4>
+          <ul>
+            <li><a href="#/perfil">Mi perfil</a></li>
+            <li><a href="#/mis-compras">Mis compras</a></li>
+            <li><a href="#/carrito">Carrito</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#/">Cómo funciona</a></li>
+            <li><a href="#/">Términos</a></li>
+            <li><a href="#/">Privacidad</a></li>
+            <li><a href="#/">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="app-footer-bottom">© RIWI Market · Hecho por y para la comunidad RIWI</div>
+    </footer>
+  </template>
+
+  <a href="#/carrito" class="fab-carrito" id="fab-carrito" aria-label="Ir al carrito" style="display:none">
+    <svg class="icon"><use href="#i-cart"/></svg>
+    <span class="carrito-badge" id="fab-carrito-badge" style="display:none">0</span>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/api.js"></script>
+  <script src="js/alertas.js"></script>
+  <script src="js/dom.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/producto.js"></script>
+  <script src="js/mis-compras.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/perfil.js"></script>
+  <script src="js/dashboard-vendedor.js"></script>
+  <script src="js/dashboard-admin.js"></script>
+  <script>
+    // Insertar el footer interno en todas las vistas internas
+    (function () {
+      const tpl = document.getElementById("tpl-app-footer");
+      if (!tpl) return;
+      document.querySelectorAll(".app-footer-slot").forEach((slot) => {
+        slot.appendChild(tpl.content.cloneNode(true));
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: marketplace_riwi_db
+    restart: always
+    environment:
+      POSTGRES_USER: riwi_user
+      POSTGRES_PASSWORD: riwi_pass
+      POSTGRES_DB: marketplace_riwi
+    ports:
+      - "5432:5432"
+    volumes:
+      - riwi_db_data:/var/lib/postgresql/data
+      - ./schema_marketplace_riwi.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  riwi_db_data:
